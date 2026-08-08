@@ -1,32 +1,23 @@
-const nodes = [
-    { id: 0, name: "Internet", parent: null },
-    { id: 1, name: "HTTP/HTTPS", parent: 0 },
-    { id: 2, name: "Hosting", parent: 0 },
-    { id: 3, name: "DNS", parent: 0 },
-    { id: 4, name: "HTML", parent: null},
-    { id: 5, name: "CSS", parent: null},
-    { id: 6, name: "JavaScript", parent: null},
-    { id: 7, name: "Version control", parent: null},
-    { id: 8, name: "Git", parent: 7},
-    { id: 9, name: "GitHub/GitLab", parent: 7},
-    { id: 10, name: "Package Managers", parent: null},
-    { id: 11, name: "NPM", parent: 10},
-    { id: 12, name: "PNPM", parent: 10},
-    { id: 13, name: "VPS", parent: 2},
-    { id: 14, name: "Static", parent: 2}
-]
+require("dotenv").config();
 
 const express = require("express");
 const app = express();
 
-app.use(express.static("../frontend"));
+const { Pool } = require("pg");
 
-app.get("/", (req, res) => {
-    res.send("Hello world");
+const db = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
-app.get("/api/nodes", (req, res) => {
-    res.json(nodes);
+app.use(express.static("../frontend"));
+
+app.get("/api/nodes", async (req, res) => {
+    const result = await db.query("SELECT * FROM nodes");
+    res.json(result.rows);
 });
 
 app.get("/api/health", (req, res) => {
