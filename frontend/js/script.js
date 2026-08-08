@@ -16,7 +16,7 @@ async function main() {
         if (sons.length === 0) {
             return(`<li> ${node.name} </li>`);
         } else {
-            let output = `<li> ${node.name} <ul>`;
+            let output = `<li class="parent-node"> ${node.name} <ul>`;
             for (const son of sons) {
                 output += createList(son);
             }

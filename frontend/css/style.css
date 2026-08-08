@@ -1,0 +1,18 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e2e8f0;
+    background-color: #0f172a;
+}
+
+li {
+  background-color: #1e293b;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.parent-node {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+}
