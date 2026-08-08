@@ -2,7 +2,7 @@
 
 Roadmap tracker for self-taught people. No deadline, no exam. Tells you what to work on today from your skill tree, based on the time you actually have.
 
-Status: early dev — stage 1/6 (backend setup in progress).
+Status: early dev — stage 2/7 (backend setup in progress).
 
 ## Problem
 
@@ -18,16 +18,18 @@ Study planners (StudyNext, Shovel, etc.) solve "what do I study before my exam",
 
 ## Stack
 
-Frontend: Vanilla HTML/CSS/JS. Backend: Node.js + Express.
+Frontend: Vanilla HTML/CSS/JS. Backend: Node.js + Express. Database: PostgreSQL.
+
 ## Build stages
 
-- [X] 0. Backend setup (Express serving frontend)
-- [X] 1. Tree data structure, no rendering
-- [ ] 2. Persistence
-- [ ] 3. Topics vs specific tasks (two levels)
-- [ ] 4. Dynamic time adjustment
-- [ ] 5. Pomodoro
-- [ ] 6. LLM-based time estimation on load
+- [x] 0. Backend setup (Express serving frontend)
+- [x] 1. Tree data structure, no rendering
+- [x] 2. Move data to PostgreSQL, serve via API
+- [ ] 3. User authentication + per-user roadmaps
+- [ ] 4. Topics vs specific tasks
+- [ ] 5. Dynamic time adjustment
+- [ ] 6. Pomodoro
+- [ ] 7. LLM-based time estimation on load
 
 ## Why
 
