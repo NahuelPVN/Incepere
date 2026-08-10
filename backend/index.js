@@ -13,6 +13,9 @@ const db = new Pool({
   port: process.env.DB_PORT,
 });
 
+
+// API
+
 app.use(express.static("../frontend"));
 
 app.get("/api/nodes", async (req, res) => {
@@ -27,3 +30,12 @@ app.get("/api/health", (req, res) => {
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
+
+// REGISTER
+
+function validateRegister(email, password) {
+  if (!email || !password) return "All fields are required";
+  if (password.length < 8) return "Password must be at least 8 characters long";
+  return null;
+}
+
